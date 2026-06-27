@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Droplets, ArrowRight, Clock, ChevronDown } from "lucide-react";
 
 /* ─── Components ─── */
 
@@ -16,9 +17,7 @@ function FloatingNav() {
     <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${scrolled ? "opacity-90 hover:opacity-100" : "opacity-100"}`}>
       <div className="floating-nav flex items-center gap-6 px-5 py-2.5">
         <div className="flex items-center gap-2 text-white">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 2C8 6 4 10 4 14a8 8 0 0 0 16 0c0-4-4-8-8-12z" />
-          </svg>
+          <Droplets size={20} />
           <span className="font-serif-display text-sm leading-none" style={{ fontSize: "16px", letterSpacing: "-0.02em" }}>Greenwater</span>
         </div>
         <div className="hidden md:flex items-center gap-5">
@@ -28,10 +27,10 @@ function FloatingNav() {
         </div>
         <a href="#pilot" className="bg-[#1f1f29] text-white text-[13px] font-medium px-3 py-1.5 rounded-[4px] flex items-center gap-1.5 hover:bg-white hover:text-[#1f1f29] transition-all">
           Get Early Access
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          <ArrowRight size={12} strokeWidth={2.5} />
         </a>
         <div className="hidden lg:flex items-center gap-1.5 text-white/60 text-[11px] font-sans tracking-tight">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <Clock size={10} strokeWidth={2} />
           <LiveTime />
         </div>
       </div>
@@ -62,18 +61,15 @@ export default function Home() {
 
       {/* ═══ HERO ═══ */}
       <section className="relative min-h-screen w-full overflow-hidden flex items-center">
-        {/* Full-bleed painted background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0d2135] via-[#1a3f5c] to-[#0a1f2e]" />
         <div className="absolute inset-0 opacity-20" style={{
           backgroundImage: `radial-gradient(ellipse at 20% 80%, rgba(0,139,139,0.4) 0%, transparent 50%),
                             radial-gradient(ellipse at 80% 20%, rgba(0,129,192,0.3) 0%, transparent 50%)`
         }} />
-        {/* Cityscape silhouettes */}
         <div className="absolute bottom-0 left-0 right-0 h-[35vh] opacity-[0.07]" style={{
-          background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400'%3E%3Crect x='0' y='200' width='60' height='200' fill='%23fff'/%3E%3Crect x='80' y='150' width='45' height='250' fill='%23fff'/%3E%3Crect x='140' y='220' width='70' height='180' fill='%23fff'/%3E%3Crect x='230' y='100' width='55' height='300' fill='%23fff'/%3E%3Crect x='300' y='180' width='80' height='220' fill='%23fff'/%3E%3Crect x='400' y='60' width='65' height='340' fill='%23fff'/%3E%3Crect x='480' y='140' width='50' height='260' fill='%23fff'/%3E%3C/svg%3E") repeat-x bottom`,
+          background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400'%3E%3Crect x='0' y='200' width='60' height='200' fill='%23fff'/%3E%3Crect x='80' y='150' width='45' height='250' fill='%23fff'/%3E%3Crect x='140' y='220' width='70' height='180' fill='%23fff'/%3E%3Crect x='230' y='100' width='55' height='300' fill='%23fff'/%3E%3Crect x='300' y='180' width='80' height='220' fill='%23fff'/%3E%3Crect x='400' y='60' width='65' height='340' fill='%23fff'/%3E%3C/svg%3E") repeat-x bottom`,
           backgroundSize: "1200px 35vh"
         }} />
-        {/* Stars */}
         <div className="absolute inset-0 overflow-hidden">
           {Array.from({ length: 40 }).map((_, i) => (
             <div key={i} className="absolute w-0.5 h-0.5 bg-white/20 rounded-full"
@@ -88,7 +84,6 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6">
-          {/* Frosted hero card — lower-left quadrant, like GIC */}
           <div className="max-w-[560px] glass-blue rounded-[24px] p-6 md:p-8 shadow-[rgba(0,0,0,0.06)_0px_2px_2px_0px,rgba(0,0,0,0.04)_0px_0px_0px_5px] animate-fade-in-up">
             <h1 className="font-serif-display text-white text-[42px] md:text-[52px] leading-[1.1] tracking-[-1.04px] mb-4">
               Cut your water use in half.
@@ -99,7 +94,7 @@ export default function Home() {
             <div className="flex items-center gap-5">
               <a href="#pilot" className="text-white text-[15px] font-medium border-b border-white/70 pb-0.5 hover:text-white/80 hover:border-white/40 transition-all flex items-center gap-1.5">
                 Get Early Access
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+                <ArrowRight size={14} strokeWidth={2.5} />
               </a>
               <a href="#how" className="text-white/60 text-[15px] font-sans hover:text-white transition-colors">How it works</a>
             </div>
@@ -148,7 +143,6 @@ export default function Home() {
             </div>
             <div>
               <div className="text-[13px] font-sans font-semibold text-[#444141] uppercase tracking-wider mb-3">Three stages</div>
-              {/* Diagram card */}
               <div className="bg-white rounded-[16px] p-6 border border-[#dee2de] shadow-subtle-2">
                 <svg width="100%" height="120" viewBox="0 0 400 120" className="opacity-60">
                   <rect x="20" y="35" width="100" height="50" rx="6" fill="none" stroke="#b4b8b4" strokeWidth="1.5" />
@@ -171,7 +165,7 @@ export default function Home() {
       </section>
 
       {/* ═══ SECTION: Technology / AI ═══ */}
-      <section className="py-32 bg-[#fefffc] border-t border-[#dee2de]">
+      <section id="features" className="py-32 bg-[#fefffc] border-t border-[#dee2de]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
@@ -223,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* ═══ SECTION: Engineering ═══ */}
-      <section className="py-32 bg-[#fefffc] border-t border-[#dee2de]">
+      <section id="faq" className="py-32 bg-[#fefffc] border-t border-[#dee2de]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="max-w-[720px]">
             <h2 className="font-serif-md text-[36px] md:text-[44px] leading-[1.1] tracking-[-0.88px] text-[#171717] mb-5">
@@ -297,7 +291,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <a href="#" className="bg-[#1f1f29] text-white text-[15px] font-medium px-5 py-2.5 rounded-[4px] hover:bg-black transition-all flex items-center gap-2">
               Get Early Access
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+              <ArrowRight size={14} strokeWidth={2.5} />
             </a>
             <a href="#" className="text-[#41a1cf] text-[15px] font-sans border border-[#41a1cf] rounded-[4px] px-4 py-2 hover:bg-[#41a1cf] hover:text-white transition-all">
               Schedule a free assessment
@@ -316,31 +310,45 @@ export default function Home() {
       {/* ═══ FOOTER ═══ */}
       <footer className="py-16 bg-[#fefffc] border-t border-[#dee2de]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-10">
             <div>
               <div className="flex items-center gap-2 text-[#171717] mb-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2C8 6 4 10 4 14a8 8 0 0 0 16 0c0-4-4-8-8-12z" />
-                </svg>
+                <Droplets size={18} />
                 <span className="font-serif-display text-[16px] leading-none tracking-[-0.02em]">Greenwater</span>
               </div>
-              <p className="text-[13px] text-[#646464] max-w-[240px] leading-relaxed">AI-powered gray water recycling for the modern home.</p>
+              <p className="text-[13px] text-[#646464] max-w-[220px] leading-relaxed">AI-powered gray water recycling for the modern home.</p>
             </div>
             <div className="flex flex-wrap gap-12">
-              {[
-                { title: "Product", links: ["About", "How it works", "Pilot", "FAQ"] },
-                { title: "Company", links: ["Blog", "Careers", "Press"] },
-                { title: "Connect", links: ["Twitter / X", "LinkedIn", "Newsletter"] },
-              ].map((col) => (
-                <div key={col.title}>
-                  <div className="text-[11px] font-sans font-semibold text-[#444141] uppercase tracking-wider mb-3">{col.title}</div>
-                  <div className="space-y-1.5">
-                    {col.links.map((l) => (
-                      <a key={l} href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">{l}</a>
-                    ))}
-                  </div>
+              <div>
+                <div className="text-[11px] font-sans font-semibold text-[#444141] uppercase tracking-wider mb-3">Product</div>
+                <div className="space-y-1.5">
+                  <a href="#how" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">How It Works</a>
+                  <a href="#features" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Features</a>
+                  <a href="#pilot" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Pricing</a>
+                  <a href="#faq" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">FAQ</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Documentation</a>
                 </div>
-              ))}
+              </div>
+              <div>
+                <div className="text-[11px] font-sans font-semibold text-[#444141] uppercase tracking-wider mb-3">Company</div>
+                <div className="space-y-1.5">
+                  <a href="#about" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">About</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Blog</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Careers</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Press Kit</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Contact</a>
+                </div>
+              </div>
+              <div>
+                <div className="text-[11px] font-sans font-semibold text-[#444141] uppercase tracking-wider mb-3">Connect</div>
+                <div className="space-y-1.5">
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Twitter / X</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">LinkedIn</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Instagram</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">YouTube</a>
+                  <a href="#" className="block text-[13px] text-[#646464] hover:text-[#171717] transition-colors font-sans">Newsletter</a>
+                </div>
+              </div>
             </div>
           </div>
           <div className="border-t border-[#dee2de] pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -348,6 +356,7 @@ export default function Home() {
             <div className="flex items-center gap-4 text-[12px] text-[#b4b8b4] font-sans">
               <a href="#" className="hover:text-[#646464] transition-colors">Privacy</a>
               <a href="#" className="hover:text-[#646464] transition-colors">Terms</a>
+              <a href="#" className="hover:text-[#646464] transition-colors">Sitemap</a>
             </div>
           </div>
         </div>
