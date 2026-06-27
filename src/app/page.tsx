@@ -15,7 +15,7 @@ function TopNav() {
           </svg>
           <span className="font-signifier text-[18px] leading-none tracking-[-0.2px]">Greenwater</span>
         </div>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           <a href="#about" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">About</a>
           <a href="#how" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">How It Works</a>
           <a href="#features" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">Technology</a>
@@ -23,7 +23,7 @@ function TopNav() {
         </div>
         <div className="flex items-center gap-4">
           <a href="#about" className="hidden sm:inline text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">Learn</a>
-          <a href="#pilot" className="inline-flex items-center gap-1.5 bg-ink text-pure-white text-[15px] font-[450] px-5 py-2 rounded-full tracking-[-0.009em] hover:bg-ink/90 transition-all">
+          <a href="#pilot" className="inline-flex items-center gap-1.5 bg-ink text-pure-white text-[15px] font-[450] px-5 py-2 rounded-full tracking-[-0.009em] hover:bg-ink/90 transition-all whitespace-nowrap">
             Get Early Access
             <ArrowRight size={14} strokeWidth={2} />
           </a>
@@ -122,17 +122,17 @@ function StatsSummaryCard() {
 
 function FloatingCards() {
   return (
-    <div className="hidden lg:block absolute inset-0 pointer-events-none">
-      <div className="absolute left-[6%] top-[18%] animate-float">
+    <div className="hidden xl:block absolute inset-0 pointer-events-none">
+      <div className="absolute left-[2%] top-[16%] animate-float">
         <StatCard />
       </div>
-      <div className="absolute right-[6%] top-[14%] animate-float-delay">
+      <div className="absolute right-[2%] top-[12%] animate-float-delay">
         <DonutCard />
       </div>
-      <div className="absolute left-[8%] bottom-[16%] animate-float-slow">
+      <div className="absolute left-[2%] bottom-[14%] animate-float-slow">
         <ChartCard />
       </div>
-      <div className="absolute right-[6%] bottom-[14%] animate-float-delay">
+      <div className="absolute right-[2%] bottom-[12%] animate-float-delay">
         <StatsSummaryCard />
       </div>
     </div>
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* About / Problem */}
-      <section id="about" className="py-20 md:py-24 bg-fog">
+      <section id="about" className="py-24 md:py-32 bg-fog">
         <div className="max-w-[760px] mx-auto px-6">
           <div className="text-center">
             <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-5">
@@ -190,14 +190,14 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section id="how" className="py-20 md:py-24 bg-pure-white">
+      <section id="how" className="py-24 md:py-32 bg-pure-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink">
               Smart diversion, not full replumbing.
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-[1000px] mx-auto">
             {[
               { step: "01", title: "Intelligent Diversion", desc: "Our valve pack reads source quality in real-time and diverts only reclaimable water from showers and sinks. Black water lines stay untouched." },
               { step: "02", title: "3-Stage Filtration", desc: "Sensor-driven AI models optimize a three-stage process, ensuring every drop meets quality thresholds before reaching your garden." },
@@ -216,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* Technology */}
-      <section id="features" className="py-20 md:py-24 bg-fog">
+      <section id="features" className="py-24 md:py-32 bg-fog">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-[1000px] mx-auto">
             <div>
@@ -272,7 +272,7 @@ export default function Home() {
       </section>
 
       {/* Engineering */}
-      <section id="faq" className="py-20 md:py-24 bg-pure-white">
+      <section id="faq" className="py-24 md:py-32 bg-pure-white">
         <div className="max-w-[760px] mx-auto px-6 text-center">
           <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-5">
             Engineered for a lifetime.{" "}
@@ -281,7 +281,7 @@ export default function Home() {
           <p className="text-body text-ash leading-body max-w-[600px] mx-auto mb-10">
             Every component is rated for 100,000+ duty cycles — self-cleaning filters, titanium-grade sensors, and industrial valves. Install it once and forget it exists, except for the savings.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-[650px] mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[650px] mx-auto">
             {[
               "15-year transferable warranty",
               "12W standby power",
@@ -295,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* Impact */}
-      <section className="py-20 md:py-24 bg-fog">
+      <section className="py-24 md:py-32 bg-fog">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-[1000px] mx-auto">
             <div>
@@ -313,7 +313,7 @@ export default function Home() {
             <div>
               <div className="bg-pure-white rounded-3xl p-6 shadow-subtle">
                 <div className="text-[13px] font-[480] text-graphite tracking-[-0.009em] mb-5 text-center">Annual impact per home</div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-4">
                   {[
                     { value: "25,000", label: "Gallons saved" },
                     { value: "420 lbs", label: "CO\u2082 offset" },
@@ -336,7 +336,7 @@ export default function Home() {
       </section>
 
       {/* Pilot */}
-      <section id="pilot" className="relative py-20 md:py-24 bg-pure-white overflow-hidden">
+      <section id="pilot" className="relative py-24 md:py-32 bg-pure-white overflow-hidden">
         <div className="max-w-[650px] mx-auto px-6 text-center">
           <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-5">
             Be one of the first 500 homes.
