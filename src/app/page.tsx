@@ -2,36 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
-
-function TopNav() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-pure-white border-b border-dove/30">
-      <div className="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between">
-        <div className="flex items-center gap-2 text-ink">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 2C10 2 4 8 4 13C4 16.3 6.7 19 10 19C13.3 19 16 16.3 16 13C16 8 10 2 10 2Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
-            <path d="M10 6V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <path d="M7 9H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-          <span className="font-signifier text-[18px] leading-none tracking-[-0.2px]">Greenwater</span>
-        </div>
-        <div className="hidden md:flex items-center gap-10">
-          <a href="#about" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">About</a>
-          <a href="#how" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">How It Works</a>
-          <a href="#features" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">Technology</a>
-          <a href="#pilot" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">Pilot</a>
-        </div>
-        <div className="flex items-center gap-4">
-          <a href="#about" className="hidden sm:inline text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">Learn</a>
-          <a href="#pilot" className="inline-flex items-center gap-1.5 bg-ink text-pure-white text-[15px] font-[450] px-5 py-2 rounded-full tracking-[-0.009em] hover:bg-ink/90 transition-all whitespace-nowrap">
-            Get Early Access
-            <ArrowRight size={14} strokeWidth={2} />
-          </a>
-        </div>
-      </div>
-    </nav>
-  );
-}
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 function ScrollIndicator() {
   const [visible, setVisible] = useState(true);
@@ -66,7 +38,6 @@ function StatCard() {
 }
 
 function DonutCard() {
-  const circumference = 2 * Math.PI * 15.9;
   const grayWater = 68;
   const fresh = 32;
   return (
@@ -123,16 +94,16 @@ function StatsSummaryCard() {
 function FloatingCards() {
   return (
     <div className="hidden xl:block absolute inset-0 pointer-events-none">
-      <div className="absolute left-[2%] top-[16%] animate-float">
+      <div className="absolute left-[3%] top-[14%] animate-float">
         <StatCard />
       </div>
-      <div className="absolute right-[2%] top-[12%] animate-float-delay">
+      <div className="absolute right-[3%] top-[10%] animate-float-delay">
         <DonutCard />
       </div>
-      <div className="absolute left-[2%] bottom-[14%] animate-float-slow">
+      <div className="absolute left-[3%] bottom-[12%] animate-float-slow">
         <ChartCard />
       </div>
-      <div className="absolute right-[2%] bottom-[12%] animate-float-delay">
+      <div className="absolute right-[3%] bottom-[10%] animate-float-delay">
         <StatsSummaryCard />
       </div>
     </div>
@@ -142,7 +113,7 @@ function FloatingCards() {
 export default function Home() {
   return (
     <>
-      <TopNav />
+      <Header />
 
       {/* Hero */}
       <section className="relative min-h-screen w-full overflow-hidden bg-pure-white flex items-center justify-center pt-16">
@@ -154,18 +125,18 @@ export default function Home() {
         <FloatingCards />
 
         <div className="relative z-10 w-full max-w-[800px] mx-auto px-6 text-center">
-          <h1 className="font-signifier text-[56px] md:text-[64px] leading-[1.1] tracking-[-1.6px] text-ink mb-5 animate-fade-in-up">
+          <h1 className="font-signifier text-[44px] sm:text-[56px] md:text-[64px] leading-[1.1] tracking-[-1.6px] text-ink mb-6 animate-fade-in-up text-balance">
             Cut your water use in half.
           </h1>
-          <p className="text-body-lg text-ash leading-[1.35] max-w-[540px] mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: "0.15s", animationFillMode: "both" }}>
+          <p className="text-body-lg text-ash leading-[1.35] max-w-[540px] mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: "0.15s", animationFillMode: "both" }}>
             Greenwater&apos;s AI-driven gray water system diverts shower and sink water to your garden. No full replumbing, no maintenance.
           </p>
-          <div className="flex items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s", animationFillMode: "both" }}>
-            <a href="#pilot" className="inline-flex items-center gap-2 bg-ink text-pure-white text-[15px] font-[450] px-6 py-2.5 rounded-full tracking-[-0.009em] hover:bg-ink/90 transition-all">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s", animationFillMode: "both" }}>
+            <a href="/pricing" className="inline-flex items-center gap-2 bg-ink text-pure-white text-[15px] font-[450] px-6 py-2.5 rounded-full tracking-[-0.009em] hover:bg-ink/90 transition-all">
               Get Early Access
               <ArrowRight size={14} strokeWidth={2} />
             </a>
-            <a href="#how" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">
+            <a href="/how-it-works" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">
               How it works
             </a>
           </div>
@@ -178,9 +149,9 @@ export default function Home() {
       <section id="about" className="py-24 md:py-32 bg-fog">
         <div className="max-w-[760px] mx-auto px-6">
           <div className="text-center">
-            <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-5">
+            <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-6 text-balance">
               We&apos;re running out of fresh water.{" "}
-              <a href="#how" className="text-rust underline decoration-1 underline-offset-4 hover:text-rust/80 transition-colors">Your home can help.</a>
+              <a href="/how-it-works" className="text-rust underline decoration-1 underline-offset-4 hover:text-rust/80 transition-colors">Your home can help.</a>
             </h2>
             <p className="text-body text-ash leading-body max-w-[580px] mx-auto">
               The average family uses 300 gallons of water per day. Nearly half goes to landscaping. Climate change is straining supplies everywhere, but the answer isn&apos;t using less — it&apos;s using smarter.
@@ -203,14 +174,20 @@ export default function Home() {
               { step: "02", title: "3-Stage Filtration", desc: "Sensor-driven AI models optimize a three-stage process, ensuring every drop meets quality thresholds before reaching your garden." },
               { step: "03", title: "Live Insights", desc: "Water use, quality, and savings data at your fingertips. Understand exactly where your water goes and how much you&apos;re saving." },
             ].map((s) => (
-              <div key={s.step} className="bg-pure-white rounded-3xl p-6 shadow-subtle text-center">
-                <div className="w-11 h-11 rounded-full bg-apricot-wash flex items-center justify-center mx-auto mb-5">
-                  <span className="text-rust text-[15px] font-signifier">{s.step}</span>
+              <div key={s.step} className="bg-pure-white rounded-3xl p-8 shadow-subtle text-center">
+                <div className="w-12 h-12 rounded-full bg-apricot-wash flex items-center justify-center mx-auto mb-6">
+                  <span className="text-rust text-[16px] font-signifier">{s.step}</span>
                 </div>
-                <h3 className="text-subheading font-[450] text-ink leading-subheading tracking-subheading mb-2">{s.title}</h3>
+                <h3 className="text-subheading font-[450] text-ink leading-subheading tracking-subheading mb-3">{s.title}</h3>
                 <p className="text-[14px] text-graphite leading-relaxed max-w-[280px] mx-auto">{s.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <a href="/how-it-works" className="inline-flex items-center gap-2 text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">
+              See full technical breakdown
+              <ArrowRight size={14} strokeWidth={2} />
+            </a>
           </div>
         </div>
       </section>
@@ -220,7 +197,7 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-[1000px] mx-auto">
             <div>
-              <h2 className="font-signifier text-[36px] md:text-[42px] leading-[1.1] tracking-[-0.84px] text-ink mb-5">
+              <h2 className="font-signifier text-[36px] md:text-[42px] leading-[1.1] tracking-[-0.84px] text-ink mb-6 text-balance">
                 AI that optimizes every drop.
               </h2>
               <p className="text-body text-ash leading-body mb-8">
@@ -251,7 +228,7 @@ export default function Home() {
                       <div className="w-full rounded-t-[3px] transition-all duration-300"
                         style={{
                           height: `${v * 1.3}px`,
-                          background: i === 11 ? "var(--color-rust)" : "var(--color-rust)",
+                          background: "var(--color-rust)",
                           opacity: 0.15 + (i / 12) * 0.6
                         }} />
                       <span className="text-[7px] text-graphite">M{i + 1}</span>
@@ -268,15 +245,21 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <div className="text-center mt-12">
+            <a href="/features" className="inline-flex items-center gap-2 text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">
+              Explore all features
+              <ArrowRight size={14} strokeWidth={2} />
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Engineering */}
-      <section id="faq" className="py-24 md:py-32 bg-pure-white">
+      <section className="py-24 md:py-32 bg-pure-white">
         <div className="max-w-[760px] mx-auto px-6 text-center">
-          <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-5">
+          <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-6 text-balance">
             Engineered for a lifetime.{" "}
-            <a href="#pilot" className="text-rust underline decoration-1 underline-offset-4 hover:text-rust/80 transition-colors">Zero maintenance.</a>
+            <a href="/pricing" className="text-rust underline decoration-1 underline-offset-4 hover:text-rust/80 transition-colors">Zero maintenance.</a>
           </h2>
           <p className="text-body text-ash leading-body max-w-[600px] mx-auto mb-10">
             Every component is rated for 100,000+ duty cycles — self-cleaning filters, titanium-grade sensors, and industrial valves. Install it once and forget it exists, except for the savings.
@@ -288,7 +271,7 @@ export default function Home() {
               "IP67 rated",
               "No permits required",
             ].map((spec) => (
-              <div key={spec} className="bg-fog rounded-3xl px-4 py-3 text-[13px] text-ash text-center font-sohne">{spec}</div>
+              <div key={spec} className="bg-fog rounded-2xl px-4 py-4 text-[13px] text-ash text-center font-sohne">{spec}</div>
             ))}
           </div>
         </div>
@@ -299,9 +282,9 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-[1000px] mx-auto">
             <div>
-              <h2 className="font-signifier text-[36px] md:text-[42px] leading-[1.1] tracking-[-0.84px] text-ink mb-5">
+              <h2 className="font-signifier text-[36px] md:text-[42px] leading-[1.1] tracking-[-0.84px] text-ink mb-6 text-balance">
                 Save water. Save money.{" "}
-                <a href="#pilot" className="text-rust underline decoration-1 underline-offset-4 hover:text-rust/80 transition-colors">Save the planet.</a>
+                <a href="/pricing" className="text-rust underline decoration-1 underline-offset-4 hover:text-rust/80 transition-colors">Save the planet.</a>
               </h2>
               <p className="text-body text-ash leading-body mb-6">
                 Every Greenwater home saves 25,000 gallons of water and offsets 420 lbs of CO₂ per year — equivalent to planting 8 trees annually. The system pays for itself within 12-18 months, and most homeowners qualify for $200-800 in rebates.
@@ -338,89 +321,32 @@ export default function Home() {
       {/* Pilot */}
       <section id="pilot" className="relative py-24 md:py-32 bg-pure-white overflow-hidden">
         <div className="max-w-[650px] mx-auto px-6 text-center">
-          <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-5">
+          <h2 className="font-signifier text-[40px] md:text-heading leading-heading tracking-heading text-ink mb-6 text-balance">
             Be one of the first 500 homes.
           </h2>
           <p className="text-body text-ash leading-body max-w-[520px] mx-auto mb-10">
             Our pilot program offers discounted pricing, priority installation, and a direct line to our engineering team. Spots are limited.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <a href="mailto:hello@waterwz.com" className="inline-flex items-center gap-2 bg-ink text-pure-white text-[15px] font-[450] px-6 py-2.5 rounded-full tracking-[-0.009em] hover:bg-ink/90 transition-all">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+            <a href="/pricing" className="inline-flex items-center gap-2 bg-ink text-pure-white text-[15px] font-[450] px-6 py-2.5 rounded-full tracking-[-0.009em] hover:bg-ink/90 transition-all">
               Get Early Access
               <ArrowRight size={14} strokeWidth={2} />
             </a>
-            <a href="mailto:hello@waterwz.com" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">
+            <a href="/contact" className="text-[15px] font-[450] text-ink tracking-[-0.009em] hover:text-graphite transition-colors">
               Schedule a free assessment
             </a>
           </div>
-          <div className="flex items-center justify-center gap-6 text-[13px] text-graphite">
-            <span className="flex items-center gap-1.5">No commitment</span>
-            <span className="text-dove/60">|</span>
-            <span className="flex items-center gap-1.5">Free site survey</span>
-            <span className="text-dove/60">|</span>
-            <span className="flex items-center gap-1.5">30-day guarantee</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[13px] text-graphite">
+            <span>No commitment</span>
+            <span className="hidden sm:inline text-dove/60">|</span>
+            <span>Free site survey</span>
+            <span className="hidden sm:inline text-dove/60">|</span>
+            <span>30-day guarantee</span>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 bg-pure-white border-t border-dove/30">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-10">
-            <div>
-              <div className="flex items-center gap-2 text-ink mb-3">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 2C10 2 4 8 4 13C4 16.3 6.7 19 10 19C13.3 19 16 16.3 16 13C16 8 10 2 10 2Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                  <path d="M10 6V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M7 9H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                <span className="font-signifier text-[16px] leading-none tracking-[-0.02em]">Greenwater</span>
-              </div>
-              <p className="text-[13px] text-graphite max-w-[220px] leading-relaxed">AI-powered gray water recycling for the modern home.</p>
-            </div>
-            <div className="flex flex-wrap gap-12">
-              <div>
-                <div className="text-[11px] font-[500] text-graphite uppercase tracking-[0.05em] mb-3">Product</div>
-                <div className="space-y-1.5">
-                  <a href="#how" className="block text-[13px] text-ash hover:text-ink transition-colors">How It Works</a>
-                  <a href="#features" className="block text-[13px] text-ash hover:text-ink transition-colors">Features</a>
-                  <a href="#pilot" className="block text-[13px] text-ash hover:text-ink transition-colors">Pricing</a>
-                  <a href="#faq" className="block text-[13px] text-ash hover:text-ink transition-colors">FAQ</a>
-                  <a href="/docs" className="block text-[13px] text-ash hover:text-ink transition-colors">Documentation</a>
-                </div>
-              </div>
-              <div>
-                <div className="text-[11px] font-[500] text-graphite uppercase tracking-[0.05em] mb-3">Company</div>
-                <div className="space-y-1.5">
-                  <a href="#about" className="block text-[13px] text-ash hover:text-ink transition-colors">About</a>
-                  <a href="/blog" className="block text-[13px] text-ash hover:text-ink transition-colors">Blog</a>
-                  <a href="/careers" className="block text-[13px] text-ash hover:text-ink transition-colors">Careers</a>
-                  <a href="/press" className="block text-[13px] text-ash hover:text-ink transition-colors">Press Kit</a>
-                  <a href="mailto:hello@waterwz.com" className="block text-[13px] text-ash hover:text-ink transition-colors">Contact</a>
-                </div>
-              </div>
-              <div>
-                <div className="text-[11px] font-[500] text-graphite uppercase tracking-[0.05em] mb-3">Connect</div>
-                <div className="space-y-1.5">
-                  <a href="https://x.com/waterwz" target="_blank" rel="noopener noreferrer" className="block text-[13px] text-ash hover:text-ink transition-colors">Twitter / X</a>
-                  <a href="https://linkedin.com/company/waterwz" target="_blank" rel="noopener noreferrer" className="block text-[13px] text-ash hover:text-ink transition-colors">LinkedIn</a>
-                  <a href="https://instagram.com/waterwz" target="_blank" rel="noopener noreferrer" className="block text-[13px] text-ash hover:text-ink transition-colors">Instagram</a>
-                  <a href="https://youtube.com/@waterwz" target="_blank" rel="noopener noreferrer" className="block text-[13px] text-ash hover:text-ink transition-colors">YouTube</a>
-                  <a href="mailto:hello@waterwz.com?subject=Subscribe" className="block text-[13px] text-ash hover:text-ink transition-colors">Newsletter</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-dove/30 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="text-[12px] text-graphite">&copy; 2026 Greenwater. All rights reserved.</div>
-            <div className="flex items-center gap-4 text-[12px] text-graphite">
-              <a href="/privacy" className="hover:text-ink transition-colors">Privacy</a>
-              <a href="/terms" className="hover:text-ink transition-colors">Terms</a>
-              <a href="/sitemap" className="hover:text-ink transition-colors">Sitemap</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
